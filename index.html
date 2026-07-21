@@ -255,16 +255,6 @@
   .auth-switch a:hover { text-decoration: underline; }
   .divider { display: flex; align-items: center; gap: 1rem; margin: 1.1rem 0; color: var(--ink-300); font-size: 0.78rem; text-transform:uppercase; letter-spacing:0.06em; }
   .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--ink-100); }
-  .field-hint { font-size: 0.74rem; color: var(--ink-500); margin-top: 4px; display:flex; align-items:center; gap:5px; }
-  .field-hint.warn { color: var(--coral-600); }
-  .password-wrap { position: relative; }
-  .password-wrap input { padding-right: 2.6rem !important; }
-  .pw-toggle { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; border: none; background: transparent; cursor: pointer; color: var(--ink-500); display:flex; align-items:center; justify-content:center; border-radius: 8px; transition: background var(--dur-fast); }
-  .pw-toggle:hover { background: var(--cream-100); color: var(--ink-700); }
-  .toggle-switch { width: 40px; height: 22px; border-radius: 11px; cursor: pointer; position: relative; transition: background 200ms; background: var(--ink-100); flex-shrink:0; }
-  .toggle-switch.on { background: var(--teal-500); }
-  .toggle-switch .dot { position:absolute; top:3px; left:3px; width:16px; height:16px; background:white; border-radius:50%; box-shadow:0 1px 4px rgba(0,0,0,0.18); transition: left 200ms; }
-  .toggle-switch.on .dot { left: 21px; }
 
   /* ====== DASHBOARD LAYOUT ====== */
   .app-layout { flex: 1; display: flex; }
@@ -592,18 +582,8 @@
         <h2>Selamat Datang Kembali</h2>
         <p>Masuk ke akun Home Care AI Anda</p>
       </div>
-      <div class="form-group">
-        <label><span class="icon" style="font-size:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6l9 7 9-7"/></svg></span> Email</label>
-        <input type="email" id="loginEmail" placeholder="nama@gmail.com" value="pasien@demo.com" onblur="autoFillGmail(this)">
-        <div class="field-hint"><span class="icon" style="font-size:12px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 8v5M12 16.2v.1"/></svg></span> Gunakan format email@gmail.com</div>
-      </div>
-      <div class="form-group">
-        <label><span class="icon" style="font-size:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span> Password</label>
-        <div class="password-wrap">
-          <input type="password" id="loginPass" placeholder="••••••••" value="demo123">
-          <button type="button" class="pw-toggle" id="loginPassToggle" onclick="togglePassword('loginPass','loginPassToggle')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M1.5 12S5 5 12 5s10.5 7 10.5 7-3.5 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
-        </div>
-      </div>
+      <div class="form-group"><label><span class="icon" style="font-size:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6l9 7 9-7"/></svg></span> Email</label><input type="email" id="loginEmail" placeholder="email@contoh.com" value="pasien@demo.com"></div>
+      <div class="form-group"><label><span class="icon" style="font-size:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span> Password</label><input type="password" id="loginPass" placeholder="••••••••" value="demo123"></div>
       <button class="btn btn-teal btn-full btn-lg" onclick="doLogin()" style="margin-top:0.5rem">Masuk <span class="icon" style="font-size:16px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M13 5l7 7-7 7"/></svg></span></button>
       <div class="divider">atau coba demo</div>
       <button class="btn btn-ghost btn-full" onclick="demoLogin('nurse')"><span class="icon" style="font-size:16px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v6a4 4 0 0 0 8 0V3"/><path d="M9 13v2a6 6 0 0 0 12 0v-2.5"/><circle cx="21" cy="10.5" r="1.8"/></svg></span> Demo sebagai Perawat</button>
@@ -635,25 +615,14 @@
         </div>
       </div>
       <div class="form-group"><label><span class="icon" style="font-size:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span> Nama Lengkap</label><input type="text" id="regName" placeholder="Nama Anda"></div>
-      <div class="form-group">
-        <label><span class="icon" style="font-size:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6l9 7 9-7"/></svg></span> Email</label>
-        <input type="email" id="regEmail" placeholder="nama@gmail.com" onblur="autoFillGmail(this)">
-        <div class="field-hint"><span class="icon" style="font-size:12px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 8v5M12 16.2v.1"/></svg></span> Gunakan format email@gmail.com — akan otomatis dilengkapi jika kosong</div>
-      </div>
-      <div class="grid-2">
-        <div class="form-group"><label>Usia</label><input type="number" id="regAge" placeholder="Usia (tahun)" min="0" max="120"></div>
-        <div class="form-group" id="regGenderGroup"><label>Jenis Kelamin</label>
+      <div class="form-group"><label><span class="icon" style="font-size:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6l9 7 9-7"/></svg></span> Email</label><input type="email" id="regEmail" placeholder="email@contoh.com"></div>
+      <div id="regPatientExtra" class="grid-2">
+        <div class="form-group"><label>Usia</label><input type="number" id="regAge" placeholder="Usia (tahun)"></div>
+        <div class="form-group"><label>Jenis Kelamin</label>
           <select id="regGender"><option value="L">Laki-laki</option><option value="P">Perempuan</option></select>
         </div>
       </div>
-      <div class="form-group"><label><span class="icon" style="font-size:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5L12 4l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg></span> Alamat</label><input type="text" id="regAddress" placeholder="Alamat lengkap, cth. Terbanggi Besar, Lampung Tengah"></div>
-      <div class="form-group">
-        <label><span class="icon" style="font-size:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span> Password</label>
-        <div class="password-wrap">
-          <input type="password" id="regPass" placeholder="••••••••">
-          <button type="button" class="pw-toggle" id="regPassToggle" onclick="togglePassword('regPass','regPassToggle')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M1.5 12S5 5 12 5s10.5 7 10.5 7-3.5 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
-        </div>
-      </div>
+      <div class="form-group"><label><span class="icon" style="font-size:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span> Password</label><input type="password" placeholder="••••••••"></div>
       <button class="btn btn-teal btn-full btn-lg" onclick="doRegister()" style="margin-top:0.5rem">Buat Akun <span class="icon" style="font-size:16px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M13 5l7 7-7 7"/></svg></span></button>
       <div class="auth-switch">Sudah punya akun? <a onclick="showScreen('login')">Masuk di sini</a></div>
       <div class="auth-switch" style="margin-top:6px"><a onclick="showScreen('landing')"><span class="icon" style="font-size:13px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4"/><path d="M11 5l-7 7 7 7"/></svg></span> Kembali ke beranda</a></div>
@@ -742,7 +711,9 @@
     </div>
     <div class="modal-body">
       <div class="form-group"><label><span class="icon" style="font-size:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span> Pasien</label>
-        <select id="docPatient"></select>
+        <select id="docPatient">
+          <option>Budi Santoso</option><option>Siti Rahayu</option><option>Ahmad Rizal</option><option>Dewi Lestari</option><option>Hendra Gunawan</option>
+        </select>
       </div>
       <div class="form-group">
         <label><span class="icon" style="font-size:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5.5-5.5L4 21"/></svg></span> Foto Kunjungan</label>
@@ -857,6 +828,20 @@
   </div>
 </div>
 
+<!-- ============ MODAL: MENGAPA HASIL INI? (EXPLAINABLE AI) ============ -->
+<div class="modal-overlay" id="explainModal">
+  <div class="modal-box" style="max-width:640px">
+    <div class="modal-header">
+      <h3 id="explainModalTitle">Mengapa hasil ini?</h3>
+      <button class="modal-close" onclick="closeModal('explainModal')"><span class="icon" style="font-size:16px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></span></button>
+    </div>
+    <div class="modal-body" id="explainModalBody" style="max-height:70vh;overflow-y:auto"></div>
+    <div class="modal-footer">
+      <button class="btn btn-teal" onclick="closeModal('explainModal')">Mengerti</button>
+    </div>
+  </div>
+</div>
+
 <!-- ============ MODAL: ADD NURSE ============ -->
 <div class="modal-overlay" id="nurseModal">
   <div class="modal-box">
@@ -872,55 +857,6 @@
     <div class="modal-footer">
       <button class="btn btn-ghost" onclick="closeModal('nurseModal')">Batal</button>
       <button class="btn btn-teal" onclick="saveNurse()"><span class="icon" style="font-size:16px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Simpan Perawat</button>
-    </div>
-  </div>
-</div>
-
-<!-- ============ MODAL: CHANGE PASSWORD ============ -->
-<div class="modal-overlay" id="changePasswordModal">
-  <div class="modal-box">
-    <div class="modal-header">
-      <h3><span class="icon" style="font-size:20px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4.5"/><path d="M11.3 11.7L20 3"/><path d="M16 7l3 3M19 4l3 3"/></svg></span> Ganti Password</h3>
-      <button class="modal-close" onclick="closeModal('changePasswordModal')"><span class="icon" style="font-size:16px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></span></button>
-    </div>
-    <div class="modal-body">
-      <div class="form-group">
-        <label>Password Lama</label>
-        <div class="password-wrap"><input type="password" id="cpOld" placeholder="Password saat ini">
-          <button type="button" class="pw-toggle" id="cpOldToggle" onclick="togglePassword('cpOld','cpOldToggle')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M1.5 12S5 5 12 5s10.5 7 10.5 7-3.5 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Password Baru</label>
-        <div class="password-wrap"><input type="password" id="cpNew" placeholder="Minimal 6 karakter">
-          <button type="button" class="pw-toggle" id="cpNewToggle" onclick="togglePassword('cpNew','cpNewToggle')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M1.5 12S5 5 12 5s10.5 7 10.5 7-3.5 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Konfirmasi Password Baru</label>
-        <div class="password-wrap"><input type="password" id="cpConfirm" placeholder="Ulangi password baru">
-          <button type="button" class="pw-toggle" id="cpConfirmToggle" onclick="togglePassword('cpConfirm','cpConfirmToggle')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M1.5 12S5 5 12 5s10.5 7 10.5 7-3.5 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
-        </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-ghost" onclick="closeModal('changePasswordModal')">Batal</button>
-      <button class="btn btn-teal" onclick="submitChangePassword()"><span class="icon" style="font-size:16px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Simpan Password</button>
-    </div>
-  </div>
-</div>
-
-<!-- ============ MODAL: PATIENT DETAIL ============ -->
-<div class="modal-overlay" id="patientDetailModal">
-  <div class="modal-box">
-    <div class="modal-header">
-      <h3><span class="icon" style="font-size:20px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M2 21c0-4 3.1-6.5 7-6.5"/><path d="M18.5 21l-3.6-3.6a2.3 2.3 0 1 1 3.6-2.9 2.3 2.3 0 1 1 3.6 2.9L18.5 21z"/></svg></span> Detail Pasien</h3>
-      <button class="modal-close" onclick="closeModal('patientDetailModal')"><span class="icon" style="font-size:16px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></span></button>
-    </div>
-    <div class="modal-body" id="patientDetailBody"></div>
-    <div class="modal-footer">
-      <button class="btn btn-ghost" onclick="closeModal('patientDetailModal')">Tutup</button>
-      <button class="btn btn-teal" id="patientDetailChatBtn"><span class="icon" style="font-size:15px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.6 8.6 0 0 1-3.8-.9L3 21l1.9-5a8.2 8.2 0 0 1-1-3.9 8.4 8.4 0 0 1 8.9-8.4 8.5 8.5 0 0 1 8.2 8.8z"/></svg></span> Chat Pasien</button>
     </div>
   </div>
 </div>
@@ -985,9 +921,6 @@ const ICONS = {
   'walk': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="1.8"/><path d="M10.5 21l1.5-6-2-2 1-5 4 1 1 4 3 3"/><path d="M8 13l-2.5 3M14 14l1 4-3 3"/></svg>',
   'syringe': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2l4 4-1.5 1.5-4-4z"/><path d="M16.5 5.5l2 2L9 17l-4 2 2-4z"/><path d="M5 19l-2 2"/><path d="M13 8l2 2M11 10l2 2"/></svg>',
   'rotate': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v5h-5"/></svg>',
-  'eye': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 12S5 5 12 5s10.5 7 10.5 7-3.5 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg>',
-  'eye-off': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M10.6 5.2A10.6 10.6 0 0 1 12 5c7 0 10.5 7 10.5 7a13.3 13.3 0 0 1-3 3.9M6.6 6.6C3.4 8.6 1.5 12 1.5 12s3.5 7 10.5 7a10.4 10.4 0 0 0 4.4-.9"/><path d="M9.5 9.7A3 3 0 0 0 12 15a3 3 0 0 0 2.3-1.1"/></svg>',
-  'database': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.6 3.6 3 8 3s8-1.4 8-3v-13"/><path d="M4 12c0 1.6 3.6 3 8 3s8-1.4 8-3"/></svg>',
 };
 function ic(name, size) {
   size = size || 18;
@@ -1057,101 +990,8 @@ let visitDocs = [
 ];
 
 // =============================================
-//  ACCOUNTS "DATABASE" (persisted locally)
-// =============================================
-// Setiap akun (pasien/perawat/admin) disimpan di sini lengkap dengan kredensial & profil,
-// sehingga login, registrasi, dan CRUD profil semuanya konsisten dan tersambung satu sama lain.
-let users = [
-  { email:'pasien@demo.com', password:'demo123', role:'patient', name:'Budi Santoso', initial:'BS',
-    phone:'0812-3456-7890', birthdate:'15 Maret 1966', address:'Jl. Proklamator Raya, Terbanggi Besar, Lampung Tengah',
-    age:58, gender:'L', patientRecordId:1, notifPrefs:{jadwal:true, pesan:true, ai:false, laporan:true}, twoFA:true },
-  { email:'dewi@homecareai.id', password:'nurse123', role:'nurse', name:'Ns. Dewi Anggraeni', initial:'DA',
-    phone:'0812-1111-2222', birthdate:'20 Agustus 1990', address:'Jl. Ir. Sutami, Bandar Jaya, Lampung Tengah',
-    age:36, gender:'P', nurseRecordId:1, notifPrefs:{jadwal:true, pesan:true, ai:false, laporan:true}, twoFA:true },
-  { email:'admin@homecareai.id', password:'admin123', role:'admin', name:'Admin Home Care AI', initial:'AM',
-    phone:'0800-1234-5678', birthdate:'-', address:'Kantor Pusat Home Care AI, Terbanggi Besar, Lampung Tengah',
-    age:0, gender:'L', notifPrefs:{jadwal:true, pesan:true, ai:false, laporan:true}, twoFA:false },
-];
-
-// =============================================
-//  LOCAL PERSISTENCE LAYER ("DATABASE")
-// =============================================
-// Menggunakan localStorage sebagai penyimpanan permanen di sisi klien, agar seluruh data
-// (akun, pasien, perawat, jadwal, dokumentasi, basis pengetahuan, riwayat chat) tetap ada
-// walau halaman ditutup/dimuat ulang — layaknya database sungguhan untuk aplikasi ini.
-const DB_KEY = 'homecare_ai_db_v1';
-
-function persistDB() {
-  try {
-    const snapshot = {
-      users, patients, nurses, scheduledVisits, visitDocs, knowledgeBase, symptoms, chatMessages,
-      savedAt: new Date().toISOString()
-    };
-    localStorage.setItem(DB_KEY, JSON.stringify(snapshot));
-  } catch (e) {
-    console.warn('Gagal menyimpan ke database lokal:', e);
-  }
-}
-
-function loadDB() {
-  try {
-    const raw = localStorage.getItem(DB_KEY);
-    if (!raw) return false;
-    const snap = JSON.parse(raw);
-    if (snap.users && snap.users.length) users = snap.users;
-    if (snap.patients && snap.patients.length) patients = snap.patients;
-    if (snap.nurses && snap.nurses.length) nurses = snap.nurses;
-    if (snap.scheduledVisits) scheduledVisits = snap.scheduledVisits;
-    if (snap.visitDocs) visitDocs = snap.visitDocs;
-    if (snap.knowledgeBase && snap.knowledgeBase.length) knowledgeBase = snap.knowledgeBase;
-    if (snap.symptoms && snap.symptoms.length) symptoms = snap.symptoms;
-    if (snap.chatMessages) chatMessages = snap.chatMessages;
-    return true;
-  } catch (e) {
-    console.warn('Gagal memuat database lokal, menggunakan data bawaan:', e);
-    return false;
-  }
-}
-
-function resetDB() {
-  if (!confirm('Hapus seluruh data lokal (akun, pasien, jadwal, dokumentasi) dan kembalikan ke data awal?')) return;
-  localStorage.removeItem(DB_KEY);
-  toast('Database lokal direset. Memuat ulang...', 'database');
-  setTimeout(() => location.reload(), 900);
-}
-// =============================================
 //  UTILITIES
 // =============================================
-function togglePassword(inputId, btnId) {
-  const input = document.getElementById(inputId);
-  const btn = document.getElementById(btnId);
-  if (!input) return;
-  const show = input.type === 'password';
-  input.type = show ? 'text' : 'password';
-  if (btn) {
-    btn.innerHTML = show
-      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M3 3l18 18"/><path d="M10.6 5.2A10.6 10.6 0 0 1 12 5c7 0 10.5 7 10.5 7a13.3 13.3 0 0 1-3 3.9M6.6 6.6C3.4 8.6 1.5 12 1.5 12s3.5 7 10.5 7a10.4 10.4 0 0 0 4.4-.9"/><path d="M9.5 9.7A3 3 0 0 0 12 15a3 3 0 0 0 2.3-1.1"/></svg>'
-      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M1.5 12S5 5 12 5s10.5 7 10.5 7-3.5 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg>';
-  }
-}
-
-// Memastikan setiap input email memakai domain @gmail.com sebagai format default aplikasi.
-// Jika pengguna belum menuliskan domain, sistem otomatis melengkapinya dan memberi pemberitahuan.
-function autoFillGmail(input) {
-  let val = input.value.trim();
-  if (!val) return;
-  if (!val.includes('@')) {
-    input.value = val + '@gmail.com';
-    toast('Domain @gmail.com otomatis ditambahkan ke email Anda', 'mail');
-  } else if (!/@gmail\.com$/i.test(val)) {
-    toast('Sebaiknya gunakan email dengan format @gmail.com', 'alert-triangle');
-  }
-}
-
-function isValidGmail(email) {
-  return /^[^\s@]+@gmail\.com$/i.test(email);
-}
-
 function toast(msg, icon) {
   const t = document.getElementById('toast');
   t.innerHTML = (icon ? ic(icon, 16) : ic('check-circle', 16)) + '<span>'+msg+'</span>';
@@ -1266,17 +1106,79 @@ let knowledgeBase = [
   }
 ];
 
+// =============================================
+//  KLASIFIKASI PERAWATAN (Prioritas 4 - TODO Skripsi)
+// =============================================
+const CARE_CATEGORIES = [
+  {id:'mandiri',    label:'Perawatan Mandiri',   icon:'home',           badge:'badge-green'},
+  {id:'observasi',  label:'Observasi',           icon:'eye',            badge:'badge-teal'},
+  {id:'homevisit',  label:'Home Visit',          icon:'stethoscope',    badge:'badge-gold'},
+  {id:'prioritas',  label:'Prioritas Tinggi',    icon:'alert-triangle', badge:'badge-orange'},
+  {id:'puskesmas',  label:'Rujuk Puskesmas',     icon:'cross-pulse',    badge:'badge-orange'},
+  {id:'rumahsakit', label:'Rujuk Rumah Sakit',   icon:'alert-octagon',  badge:'badge-red'},
+  {id:'emergency',  label:'Emergency',           icon:'alert-octagon',  badge:'badge-red'},
+];
+function classifyCare(disease, score) {
+  const text = (disease.classification || '').toLowerCase();
+  let id;
+  if (disease.level === 4 && (text.includes('rumah sakit') || text.includes(' rs') || text.includes('igd'))) id = 'rumahsakit';
+  else if (disease.level === 4) id = 'emergency';
+  else if (disease.level === 3 && text.includes('puskesmas')) id = 'puskesmas';
+  else if (disease.level === 3) id = 'prioritas';
+  else if (disease.level === 2) id = 'homevisit';
+  else if (score < 0.6) id = 'observasi';
+  else id = 'mandiri';
+  return CARE_CATEGORIES.find(c => c.id === id) || CARE_CATEGORIES[0];
+}
+
+// =============================================
+//  RIWAYAT INFERENSI AI (Prioritas 5 - TODO Skripsi)
+// =============================================
+let aiHistory = [];
+let lastInferenceTrace = null;
+let activeAIDetailId = null;
+const AI_DB_KEY = 'homecare_ai_kb_v1';
+function genAIHistoryId() { return 'AI' + Date.now().toString(36).toUpperCase(); }
+
+function persistAIData() {
+  try {
+    localStorage.setItem(AI_DB_KEY, JSON.stringify({ knowledgeBase, symptoms, aiHistory }));
+  } catch (e) { console.warn('Gagal menyimpan basis pengetahuan AI:', e); }
+}
+function loadAIData() {
+  try {
+    const raw = localStorage.getItem(AI_DB_KEY);
+    if (!raw) return;
+    const snap = JSON.parse(raw);
+    if (snap.knowledgeBase && snap.knowledgeBase.length) knowledgeBase = snap.knowledgeBase;
+    if (snap.symptoms && snap.symptoms.length) symptoms = snap.symptoms;
+    if (snap.aiHistory) aiHistory = snap.aiHistory;
+  } catch (e) { console.warn('Gagal memuat basis pengetahuan AI:', e); }
+}
+loadAIData();
+
+// =============================================
+//  FORWARD CHAINING ENGINE (dibaca dari knowledgeBase/rule base — tidak hardcode)
+// =============================================
+// Mengevaluasi SETIAP rule pada basis pengetahuan, mencatat rule yang cocok (fired)
+// maupun gagal beserta gejala yang kurang, lalu melakukan resolusi konflik berdasarkan
+// level keparahan lalu skor kecocokan tertinggi. Trace lengkap dikembalikan agar proses
+// inferensi bisa divisualisasikan & dijelaskan (explainable AI).
 function forwardChaining(selectedSymptoms) {
-  let results = [];
-  for (let disease of knowledgeBase) {
-    let matched = disease.symptoms.filter(s => selectedSymptoms.includes(s));
-    let score = matched.length / disease.symptoms.length;
-    if (matched.length >= disease.minMatch) {
-      results.push({ ...disease, matchedCount: matched.length, score });
-    }
-  }
-  results.sort((a,b) => b.level - a.level || b.score - a.score);
-  return results;
+  const evaluatedRules = knowledgeBase.map(rule => {
+    const matchedIds = rule.symptoms.filter(s => selectedSymptoms.includes(s));
+    const failedIds = rule.symptoms.filter(s => !selectedSymptoms.includes(s));
+    const score = rule.symptoms.length ? matchedIds.length / rule.symptoms.length : 0;
+    const fired = matchedIds.length >= rule.minMatch;
+    return { rule, matchedIds, failedIds, matchedCount: matchedIds.length, score, fired };
+  });
+  const firedRules = evaluatedRules.filter(e => e.fired)
+    .sort((a,b) => b.rule.level - a.rule.level || b.score - a.score);
+  const results = firedRules.map(e => ({
+    ...e.rule, matchedCount: e.matchedCount, score: e.score,
+    matchedIds: e.matchedIds, failedIds: e.failedIds, careCategory: classifyCare(e.rule, e.score)
+  }));
+  return { selectedSymptoms: [...selectedSymptoms], evaluatedRules, firedRules, results, timestamp: new Date().toISOString() };
 }
 
 // =============================================
@@ -1312,7 +1214,8 @@ function selectRole(role) {
   selectedRegRole = role;
   document.querySelectorAll('.role-card').forEach(c => c.classList.remove('selected'));
   document.getElementById('role-'+role).classList.add('selected');
-  // Usia, alamat & jenis kelamin kini selalu ditampilkan untuk melengkapi profil apa pun perannya
+  const extra = document.getElementById('regPatientExtra');
+  if (extra) extra.style.display = (role === 'patient') ? 'grid' : 'none';
 }
 
 // Data rekam medis contoh — hanya dipakai untuk akun demo pasien (Budi Santoso)
@@ -1337,43 +1240,33 @@ function emptyMedicalRecord() {
   return { vitals: null, activeMeds: [], diagnosisHistory: [] };
 }
 
-function findUserByEmail(email) {
-  return users.find(u => u.email.toLowerCase() === String(email).toLowerCase());
-}
-
-function buildCurrentUserFromRecord(u) {
-  const cu = { ...u };
-  cu.medicalRecord = (u.role === 'patient' && u.email === 'pasien@demo.com') ? demoMedicalRecord() : emptyMedicalRecord();
-  // rekam medis pasien terdaftar ikut riwayat diagnosis dari knowledgeBase jika ada catatan sebelumnya
-  if (u.role === 'patient' && u.diagnosisHistory && u.diagnosisHistory.length) {
-    cu.medicalRecord.diagnosisHistory = u.diagnosisHistory;
-  }
-  if (u.role === 'patient' && u.vitals) cu.medicalRecord.vitals = u.vitals;
-  if (u.role === 'patient' && u.activeMeds) cu.medicalRecord.activeMeds = u.activeMeds;
-  return cu;
-}
-
 function doLogin() {
-  const email = document.getElementById('loginEmail').value.trim();
-  const pass = document.getElementById('loginPass').value;
-  if (!email || !pass) { toast('Masukkan email dan password Anda', 'alert-triangle'); return; }
-  const u = findUserByEmail(email);
-  if (!u) { toast('Email tidak terdaftar. Silakan daftar akun baru.', 'alert-triangle'); return; }
-  if (u.password !== pass) { toast('Password salah. Silakan coba lagi.', 'alert-triangle'); return; }
-  currentUser = buildCurrentUserFromRecord(u);
-  currentRole = u.role;
+  const email = document.getElementById('loginEmail').value;
+  if (!email) { toast('Masukkan email Anda', 'alert-triangle'); return; }
+  currentUser = { name: 'Budi Santoso', email, role: 'patient', initial: 'BS',
+    phone: '0812-3456-7890', birthdate: '15 Maret 1966', address: 'Jl. Proklamator Raya, Terbanggi Besar, Lampung Tengah',
+    age: 58, gender: 'L', patientRecordId: 1,
+    medicalRecord: demoMedicalRecord() };
+  currentRole = 'patient';
   initDashboard();
   showScreen('dashboard');
   navigate('home');
-  toast('Berhasil masuk, selamat datang ' + u.name.split(' ')[0] + '!');
+  toast('Berhasil masuk!');
 }
 
 function demoLogin(role) {
-  const email = role === 'nurse' ? 'dewi@homecareai.id' : 'admin@homecareai.id';
-  const u = findUserByEmail(email);
-  if (!u) { toast('Akun demo tidak ditemukan', 'alert-triangle'); return; }
-  currentUser = buildCurrentUserFromRecord(u);
-  currentRole = u.role;
+  if (role === 'nurse') {
+    currentUser = { name: 'Ns. Dewi Anggraeni', email: 'dewi@homecareai.id', role: 'nurse', initial: 'DA',
+      phone: '0812-1111-2222', birthdate: '20 Agustus 1990', address: 'Jl. Ir. Sutami, Bandar Jaya, Lampung Tengah',
+      nurseRecordId: 1,
+      medicalRecord: emptyMedicalRecord() };
+    currentRole = 'nurse';
+  } else {
+    currentUser = { name: 'Admin Home Care AI', email: 'admin@homecareai.id', role: 'admin', initial: 'AM',
+      phone: '0800-1234-5678', birthdate: '-', address: 'Kantor Pusat Home Care AI, Terbanggi Besar, Lampung Tengah',
+      medicalRecord: emptyMedicalRecord() };
+    currentRole = 'admin';
+  }
   initDashboard();
   showScreen('dashboard');
   navigate('home');
@@ -1383,54 +1276,42 @@ function demoLogin(role) {
 function doRegister() {
   const name = document.getElementById('regName').value.trim();
   const email = document.getElementById('regEmail').value.trim();
-  const pass = document.getElementById('regPass').value;
-  const age = parseInt(document.getElementById('regAge').value) || 0;
-  const gender = document.getElementById('regGender').value || 'L';
-  const address = document.getElementById('regAddress').value.trim();
-
-  if (!name || !email || !pass) { toast('Lengkapi nama, email, dan password terlebih dahulu', 'alert-triangle'); return; }
-  if (!age) { toast('Masukkan usia Anda untuk melengkapi profil', 'alert-triangle'); return; }
-  if (!address) { toast('Masukkan alamat Anda untuk melengkapi profil', 'alert-triangle'); return; }
-  if (!isValidGmail(email)) { toast('Email harus menggunakan format nama@gmail.com', 'alert-triangle'); return; }
-  if (pass.length < 6) { toast('Password minimal 6 karakter', 'alert-triangle'); return; }
-  if (findUserByEmail(email)) { toast('Email ini sudah terdaftar. Silakan masuk.', 'alert-triangle'); return; }
-
+  if (!name || !email) { toast('Lengkapi data terlebih dahulu', 'alert-triangle'); return; }
   const init = name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
-  const newUser = {
-    email, password: pass, role: selectedRegRole, name, initial: init,
-    phone: '', birthdate: '', address, age, gender,
-    notifPrefs: {jadwal:true, pesan:true, ai:false, laporan:true}, twoFA:false
-  };
+  // Akun baru selalu dimulai kosong: belum ada alamat/telepon dan belum ada riwayat sama sekali
+  currentUser = { name, email, role: selectedRegRole, initial: init,
+    phone: '', birthdate: '', address: '',
+    medicalRecord: emptyMedicalRecord() };
+  currentRole = selectedRegRole;
 
   if (selectedRegRole === 'patient') {
     // Daftarkan otomatis ke database pasien agar perawat/admin bisa langsung menjadwalkan kunjungan
+    const age = parseInt(document.getElementById('regAge').value) || 0;
+    const gender = document.getElementById('regGender').value || 'L';
     const newPatient = {
       id: Date.now(), name, age, gender, phone: '',
-      address,
+      address: 'Belum diisi',
       condition: 'Belum ada diagnosis', level: 'level-1', levelText: 'Belum Dinilai',
       lastVisit: '–', status: 'Aktif'
     };
     patients.push(newPatient);
-    newUser.patientRecordId = newPatient.id;
+    currentUser.patientRecordId = newPatient.id;
+    currentUser.age = age;
+    currentUser.gender = gender;
   } else if (selectedRegRole === 'nurse') {
     // Daftarkan otomatis ke tim perawat agar admin bisa memilihnya saat menjadwalkan kunjungan
     const nurseName = name.startsWith('Ns.') ? name : 'Ns. ' + name;
     const newNurse = { id: Date.now(), name: nurseName, spec: 'Perawat Umum', patients: 0, status: 'Aktif', phone: '' };
     nurses.push(newNurse);
-    newUser.nurseRecordId = newNurse.id;
-    newUser.name = nurseName;
-    newUser.initial = nurseName.replace('Ns. ','').split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+    currentUser.nurseRecordId = newNurse.id;
+    currentUser.name = nurseName;
+    currentUser.initial = nurseName.replace('Ns. ','').split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
   }
-
-  users.push(newUser);
-  persistDB();
-  currentUser = buildCurrentUserFromRecord(newUser);
-  currentRole = selectedRegRole;
 
   initDashboard();
   showScreen('dashboard');
   navigate('home');
-  toast('Akun berhasil dibuat! Data Anda tersimpan di database aplikasi.', 'sparkle');
+  toast('Akun berhasil dibuat! Lengkapi profil Anda di halaman Profil Saya.', 'sparkle');
 }
 
 function doLogout() {
@@ -1454,6 +1335,7 @@ function renderSidebarNav() {
       <div class="nav-label">Menu Utama</div>
       <div class="nav-item active" id="nav-home" onclick="navigate('home')">${ic('home')} Beranda</div>
       <div class="nav-item" id="nav-ai-consult" onclick="navigate('ai-consult')">${ic('brain')} Konsultasi AI</div>
+      <div class="nav-item" id="nav-ai-history" onclick="navigate('ai-history')">${ic('database')} Riwayat Konsultasi AI</div>
       <div class="nav-item" id="nav-consult" onclick="navigate('consult')">${ic('chat')} Chat Perawat <span class="nav-badge">2</span></div>
       <div class="nav-item" id="nav-visitdocs" onclick="navigate('visitdocs')">${ic('camera')} Dokumentasi Kunjungan</div>
     </div>
@@ -1473,6 +1355,8 @@ function renderSidebarNav() {
       <div class="nav-item active" id="nav-home" onclick="navigate('home')">${ic('home')} Beranda</div>
       <div class="nav-item" id="nav-patients" onclick="navigate('patients')">${ic('users')} Data Pasien</div>
       <div class="nav-item" id="nav-ai-consult" onclick="navigate('ai-consult')">${ic('brain')} AI Diagnosis</div>
+      <div class="nav-item" id="nav-inference" onclick="navigate('inference')">${ic('search')} Proses Inferensi</div>
+      <div class="nav-item" id="nav-ai-history" onclick="navigate('ai-history')">${ic('database')} Riwayat AI</div>
       <div class="nav-item" id="nav-kb" onclick="navigate('kb')">${ic('clipboard')} Basis Pengetahuan</div>
       <div class="nav-item" id="nav-consult" onclick="navigate('consult')">${ic('chat')} Pesan Pasien <span class="nav-badge">3</span></div>
       <div class="nav-item" id="nav-visitdocs" onclick="navigate('visitdocs')">${ic('camera')} Dokumentasi Kunjungan</div>
@@ -1481,6 +1365,10 @@ function renderSidebarNav() {
       <div class="nav-label">Manajemen</div>
       <div class="nav-item" id="nav-schedule" onclick="navigate('schedule')">${ic('calendar')} Jadwal Kunjungan</div>
       <div class="nav-item" id="nav-reports" onclick="navigate('reports')">${ic('chart-bar')} Laporan</div>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">Dokumentasi Skripsi</div>
+      <div class="nav-item" id="nav-sistem-pakar" onclick="navigate('sistem-pakar')">${ic('brain')} Tentang Sistem Pakar</div>
     </div>
     <div class="nav-section">
       <div class="nav-label">Akun</div>
@@ -1494,9 +1382,15 @@ function renderSidebarNav() {
       <div class="nav-item" id="nav-patients" onclick="navigate('patients')">${ic('users')} Semua Pasien</div>
       <div class="nav-item" id="nav-nurses" onclick="navigate('nurses')">${ic('stethoscope')} Tim Perawat</div>
       <div class="nav-item" id="nav-kb" onclick="navigate('kb')">${ic('clipboard')} Basis Pengetahuan</div>
+      <div class="nav-item" id="nav-inference" onclick="navigate('inference')">${ic('search')} Proses Inferensi</div>
+      <div class="nav-item" id="nav-ai-history" onclick="navigate('ai-history')">${ic('database')} Riwayat AI</div>
       <div class="nav-item" id="nav-visitdocs" onclick="navigate('visitdocs')">${ic('camera')} Dokumentasi Kunjungan</div>
       <div class="nav-item" id="nav-reports" onclick="navigate('reports')">${ic('chart-bar')} Laporan & Analitik</div>
       <div class="nav-item" id="nav-schedule" onclick="navigate('schedule')">${ic('calendar')} Jadwal Kunjungan</div>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">Dokumentasi Skripsi</div>
+      <div class="nav-item" id="nav-sistem-pakar" onclick="navigate('sistem-pakar')">${ic('brain')} Tentang Sistem Pakar</div>
     </div>
     <div class="nav-section">
       <div class="nav-label">Akun</div>
@@ -1523,7 +1417,8 @@ function navigate(page) {
       'home': renderHome, 'ai-consult': renderAIConsult, 'consult': renderConsult,
       'patients': renderPatients, 'health': renderHealth, 'schedule': renderSchedule,
       'profile': renderProfile, 'reports': renderReports, 'nurses': renderNurses,
-      'visitdocs': renderVisitDocs, 'kb': renderKB
+      'visitdocs': renderVisitDocs, 'kb': renderKB, 'inference': renderInference,
+      'ai-history': renderAIHistory, 'ai-detail': renderAIDetail, 'sistem-pakar': renderSistemPakar
     };
     if (renders[page]) renders[page](mc);
     mc.style.animation = 'contentEnter 320ms cubic-bezier(.16,1,.3,1) both';
@@ -1564,7 +1459,7 @@ function renderKB(mc) {
     <div class="card-header"><span class="card-title">${ic('activity')} Daftar Gejala Terdaftar (${symptoms.length})</span></div>
     <div class="card-body">
       <div style="display:flex;flex-wrap:wrap;gap:8px">
-        ${symptoms.map(s=>`<span class="badge badge-teal">${s.label}</span>`).join('')}
+        ${symptoms.map(s=>`<span class="badge badge-teal" style="display:inline-flex;align-items:center;gap:6px">${s.label}<span onclick="deleteSymptom('${s.id}')" style="cursor:pointer;opacity:0.7;display:inline-flex" title="Hapus gejala">${ic('x',11)}</span></span>`).join('')}
       </div>
     </div>
   </div>
@@ -1610,8 +1505,18 @@ function addQuickSymptom() {
   const checked = [...document.querySelectorAll('#kbSymptomChecklist input:checked')].map(i=>i.value);
   checked.push(id);
   renderKBSymptomChecklist(checked);
-  persistDB();
+  persistAIData();
   toast('Gejala baru ditambahkan ke daftar', 'sparkle');
+}
+
+function deleteSymptom(id) {
+  const usedBy = knowledgeBase.filter(r => r.symptoms.includes(id));
+  if (usedBy.length) { toast('Gejala dipakai di ' + usedBy.length + ' aturan, hapus dari aturan itu dulu', 'alert-triangle'); return; }
+  if (!confirm('Hapus gejala ini dari daftar?')) return;
+  symptoms = symptoms.filter(s => s.id !== id);
+  persistAIData();
+  toast('Gejala dihapus', 'trash');
+  navigate('kb');
 }
 
 function openKBModal() {
@@ -1675,12 +1580,12 @@ function saveKBRule() {
   if (editingKBId) {
     const idx = knowledgeBase.findIndex(r => r.id === editingKBId);
     if (idx > -1) knowledgeBase[idx] = { ...knowledgeBase[idx], ...payload };
-    persistDB();
+    persistAIData();
     toast('Aturan diagnosis diperbarui!', 'check-circle');
   } else {
     payload.id = 'd_' + Date.now();
     knowledgeBase.push(payload);
-    persistDB();
+    persistAIData();
     toast('Aturan diagnosis baru ditambahkan!', 'sparkle');
   }
   closeModal('kbModal');
@@ -1690,9 +1595,365 @@ function saveKBRule() {
 function deleteKBRule(id) {
   if (!confirm('Hapus aturan diagnosis ini dari basis pengetahuan?')) return;
   knowledgeBase = knowledgeBase.filter(r => String(r.id) !== String(id));
-  persistDB();
+  persistAIData();
   toast('Aturan dihapus', 'trash');
   navigate('kb');
+}
+</script>
+<script>
+// =============================================
+//  EXPLAINABLE AI + PROSES INFERENSI + RIWAYAT AI (Prioritas 2, 3, 5, 7)
+//  Halaman "Proses Inferensi" & "Tentang Sistem Pakar" hanya untuk perawat/admin —
+//  bukan untuk pasien awam (terlalu teknis untuk khalayak umum).
+// =============================================
+function symptomLabel(id) { const s = symptoms.find(x => x.id === id); return s ? s.label : id; }
+
+function ruleConditionText(rule) {
+  return 'JIKA ' + rule.symptoms.map(symptomLabel).join(' DAN ') +
+    ' (minimal ' + rule.minMatch + ' dari ' + rule.symptoms.length + ' gejala cocok) MAKA diagnosis "' + rule.disease + '"';
+}
+
+function getAIHistory(id) { return aiHistory.find(h => h.id === id); }
+
+function explainResult(historyId, diseaseId) {
+  const entry = getAIHistory(historyId);
+  if (!entry || !entry.trace) { toast('Data proses inferensi tidak ditemukan', 'alert-triangle'); return; }
+  const trace = entry.trace;
+  const picked = trace.evaluatedRules.find(e => e.rule.id === diseaseId);
+  if (!picked) { toast('Aturan tidak ditemukan', 'alert-triangle'); return; }
+  const others = trace.evaluatedRules.filter(e => e.rule.id !== diseaseId);
+
+  document.getElementById('explainModalTitle').innerHTML = ic('search',18) + ' Mengapa "' + picked.rule.disease + '"?';
+  document.getElementById('explainModalBody').innerHTML = `
+    <div style="background:var(--teal-50);border-radius:var(--radius-md);padding:0.9rem 1.1rem;margin-bottom:1rem;font-size:0.85rem;color:var(--ink-700);font-family:var(--font-mono);line-height:1.6">${ruleConditionText(picked.rule)}</div>
+    <div style="margin-bottom:1rem">
+      <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;color:var(--ink-500);margin-bottom:6px">${ic('check-circle',13)} Gejala Anda yang cocok (${picked.matchedIds.length}/${picked.rule.symptoms.length})</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">${picked.matchedIds.map(id=>`<span class="badge badge-green">${symptomLabel(id)}</span>`).join('') || '<span style="color:var(--ink-500);font-size:0.82rem">Tidak ada</span>'}</div>
+    </div>
+    ${picked.failedIds.length ? `<div style="margin-bottom:1rem">
+      <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;color:var(--ink-500);margin-bottom:6px">${ic('x',13)} Gejala rule ini yang tidak Anda alami</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">${picked.failedIds.map(id=>`<span class="badge" style="background:var(--cream-100);color:var(--ink-500)">${symptomLabel(id)}</span>`).join('')}</div>
+    </div>` : ''}
+    <div style="margin-bottom:1rem;font-size:0.82rem;color:var(--ink-700);background:var(--cream-50);border-radius:var(--radius-sm);padding:0.7rem 0.9rem">Rule ini <strong>terpenuhi (fired)</strong> karena jumlah gejala cocok (${picked.matchedCount}) ≥ ambang minimal (${picked.rule.minMatch}). Skor kecocokan: <strong>${Math.round(picked.score*100)}%</strong>.</div>
+    <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;color:var(--ink-500);margin-bottom:6px">${ic('clipboard',13)} Rule lain yang dievaluasi</div>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      ${others.map(e => `
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;padding:0.5rem 0.7rem;border-radius:var(--radius-sm);background:${e.fired?'var(--teal-50)':'var(--cream-50)'};font-size:0.8rem">
+        <span>${e.fired?ic('check-circle',13):ic('x',13)} ${e.rule.disease}</span>
+        <span style="color:var(--ink-500)">${e.matchedCount}/${e.rule.symptoms.length} gejala (min. ${e.rule.minMatch}) ${e.fired?'— ikut cocok':'— tidak cocok'}</span>
+      </div>`).join('') || '<span style="font-size:0.8rem;color:var(--ink-500)">Tidak ada rule lain di basis pengetahuan.</span>'}
+    </div>
+    <div style="margin-top:1rem;font-size:0.78rem;color:var(--ink-500)">Resolusi konflik: jika lebih dari satu rule cocok, sistem memilih rule dengan <strong>level keparahan tertinggi</strong>, lalu <strong>skor kecocokan gejala tertinggi</strong>.</div>
+  `;
+  openModal('explainModal');
+}
+
+// ---------- PROSES INFERENSI (Prioritas 2) ----------
+function renderInference(mc) {
+  const list = aiHistory.filter(h => currentRole !== 'patient' || h.patient === (currentUser && currentUser.name));
+  const entry = activeAIDetailId ? getAIHistory(activeAIDetailId) : list[0];
+  mc.innerHTML = `
+  <div class="page-header">
+    <div><h1>${ic('search',24)} Proses Inferensi Forward Chaining</h1><p>Visualisasi tahap-demi-tahap mesin pakar dalam mengambil keputusan</p></div>
+  </div>
+  ${list.length ? `<div class="form-group" style="max-width:420px;margin-bottom:1.2rem">
+    <label>Pilih Sesi Konsultasi</label>
+    <select onchange="activeAIDetailId=this.value; navigate('inference')">
+      ${list.map(h => `<option value="${h.id}" ${entry && entry.id===h.id?'selected':''}>${h.date} — ${h.patient} (${h.diagnosis})</option>`).join('')}
+    </select>
+  </div>` : ''}
+  ${!entry ? `<div class="empty-state">${ic('search',40)}<h4>Belum ada data konsultasi AI</h4><p>Lakukan konsultasi AI (checklist gejala) terlebih dahulu.</p></div>` : renderInferenceStepper(entry)}
+  `;
+}
+
+function renderInferenceStepper(entry) {
+  const trace = entry.trace;
+  const fired = trace.firedRules;
+  const failed = trace.evaluatedRules.filter(e => !e.fired);
+  const top = trace.results[0];
+  const steps = [
+    { title: '1. Gejala Dipilih', body: `<div style="display:flex;flex-wrap:wrap;gap:6px">${trace.selectedSymptoms.map(id=>`<span class="badge badge-teal">${symptomLabel(id)}</span>`).join('')}</div>` },
+    { title: '2. Pencocokan Rule (Cocok / Gagal)', body: `
+      <div style="display:flex;flex-direction:column;gap:6px">
+        ${trace.evaluatedRules.map(e => `
+        <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;padding:0.55rem 0.8rem;border-radius:var(--radius-sm);background:${e.fired?'var(--teal-50)':'var(--cream-50)'}">
+          <span style="font-size:0.85rem;font-weight:600">${e.fired?ic('check-circle',14):ic('x',14)} ${e.rule.disease}</span>
+          <span style="font-size:0.76rem;color:var(--ink-500)">${e.matchedCount}/${e.rule.symptoms.length} gejala • min ${e.rule.minMatch} • ${e.fired?'RULE COCOK':'RULE GAGAL'}</span>
+        </div>`).join('')}
+      </div>` },
+    { title: '3. Rule Terakhir yang Aktif (Fired)', body: fired.length ? `
+      <div style="font-family:var(--font-mono);font-size:0.82rem;background:var(--navy-900);color:var(--teal-200);border-radius:var(--radius-sm);padding:0.8rem 1rem;line-height:1.7">${ruleConditionText(fired[fired.length-1].rule)}</div>` : `<p style="font-size:0.85rem;color:var(--ink-500)">Tidak ada rule yang aktif (fired).</p>` },
+    { title: '4. Diagnosis', body: top ? `<div style="font-weight:700;font-size:1rem">${top.disease}</div><div style="font-size:0.82rem;color:var(--ink-500);margin-top:2px">${top.description}</div>` : `<p style="font-size:0.85rem;color:var(--ink-500)">Tidak ada diagnosis yang cocok.</p>` },
+    { title: '5. Klasifikasi Perawatan', body: top ? `<span class="badge ${top.careCategory.badge}">${ic(top.careCategory.icon,12)} ${top.careCategory.label}</span> <span style="font-size:0.82rem;color:var(--ink-500);margin-left:6px">${top.classification}</span>` : '-' },
+    { title: '6. Rekomendasi', body: top ? `<ul style="font-size:0.85rem;color:var(--ink-700);padding-left:1.1rem;line-height:1.7">${top.handling.map(h=>`<li>${h}</li>`).join('')}</ul><div style="margin-top:6px;font-size:0.82rem;color:var(--ink-700)"><strong>Catatan keperawatan:</strong> ${top.nursing}</div>` : '-' },
+  ];
+  return `
+  <div class="card">
+    <div class="card-header"><span class="card-title">${ic('clipboard')} ${entry.date} — ${entry.patient}</span></div>
+    <div class="card-body" style="display:flex;flex-direction:column;gap:0">
+      ${steps.map((s,i) => `
+      <div style="display:flex;gap:14px;padding:1rem 0;${i<steps.length-1?'border-bottom:1px dashed var(--cream-200)':''}">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--teal-100);color:var(--teal-700);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;font-family:var(--font-mono);font-size:0.85rem">${i+1}</div>
+        <div style="flex:1">
+          <div style="font-weight:700;font-size:0.9rem;margin-bottom:8px">${s.title.replace(/^\d+\.\s*/,'')}</div>
+          ${s.body}
+        </div>
+      </div>`).join('')}
+    </div>
+  </div>
+  ${failed.length ? `<div class="card" style="margin-top:1.2rem">
+    <div class="card-header"><span class="card-title">${ic('x')} Rule yang Gagal (${failed.length})</span></div>
+    <div class="card-body" style="display:flex;flex-direction:column;gap:6px">
+      ${failed.map(e => `<div style="font-size:0.82rem;color:var(--ink-700)">${e.rule.disease} — kurang: ${e.failedIds.map(symptomLabel).join(', ') || '-'}</div>`).join('')}
+    </div>
+  </div>` : ''}`;
+}
+
+// ---------- RIWAYAT AI (Prioritas 5) ----------
+function renderAIHistory(mc) {
+  const isPatient = currentRole === 'patient';
+  const list = isPatient ? aiHistory.filter(h => h.patient === (currentUser && currentUser.name)) : aiHistory;
+  mc.innerHTML = `
+  <div class="page-header">
+    <div><h1>${ic('database',24)} ${isPatient ? 'Riwayat Konsultasi AI Saya' : 'Riwayat Inferensi AI'}</h1><p>${isPatient ? 'Daftar hasil konsultasi AI yang pernah Anda lakukan' : 'Seluruh catatan konsultasi AI dari semua pasien'}</p></div>
+  </div>
+  <div class="card">
+    <div class="card-body" style="padding:0;overflow-x:auto">
+      ${list.length === 0 ? `<div class="empty-state">${ic('database',40)}<h4>Belum ada riwayat</h4><p>Riwayat akan muncul setelah konsultasi AI dilakukan.</p></div>` : `
+      <table style="width:100%;border-collapse:collapse;font-size:0.84rem;min-width:720px">
+        <thead><tr style="background:var(--cream-50);text-align:left">
+          <th style="padding:0.7rem 1rem">Tanggal</th>
+          ${isPatient ? '' : '<th style="padding:0.7rem 1rem">Pasien</th>'}
+          <th style="padding:0.7rem 1rem">Rule Aktif</th>
+          <th style="padding:0.7rem 1rem">Diagnosis</th>
+          <th style="padding:0.7rem 1rem">Klasifikasi</th>
+          <th style="padding:0.7rem 1rem">Perawat</th>
+          <th style="padding:0.7rem 1rem">Status</th>
+          <th style="padding:0.7rem 1rem"></th>
+        </tr></thead>
+        <tbody>
+        ${list.map(h => `
+          <tr style="border-top:1px solid var(--cream-200)">
+            <td style="padding:0.7rem 1rem;white-space:nowrap">${h.date}</td>
+            ${isPatient ? '' : `<td style="padding:0.7rem 1rem">${h.patient}</td>`}
+            <td style="padding:0.7rem 1rem">${h.firedRuleIds.length}</td>
+            <td style="padding:0.7rem 1rem">${h.diagnosis}</td>
+            <td style="padding:0.7rem 1rem"><span class="badge ${h.careCategory.badge}">${h.careCategory.label}</span></td>
+            <td style="padding:0.7rem 1rem">${h.nurse || '-'}</td>
+            <td style="padding:0.7rem 1rem">${h.status}</td>
+            <td style="padding:0.7rem 1rem"><button class="btn btn-ghost" style="padding:0.35rem 0.7rem;font-size:0.76rem" onclick="viewAIDetail('${h.id}')">${ic('search',13)} Detail</button></td>
+          </tr>`).join('')}
+        </tbody>
+      </table>`}
+    </div>
+  </div>`;
+}
+
+// ---------- DETAIL HASIL AI (Prioritas 7) ----------
+function viewAIDetail(id) { activeAIDetailId = id; navigate('ai-detail'); }
+
+function renderAIDetail(mc) {
+  const entry = getAIHistory(activeAIDetailId);
+  if (!entry) { mc.innerHTML = `<div class="empty-state">${ic('search',40)}<h4>Data tidak ditemukan</h4><button class="btn btn-teal" onclick="navigate('ai-history')">Kembali ke Riwayat</button></div>`; return; }
+  const trace = entry.trace;
+  const top = trace.results[0];
+  const canManage = currentRole === 'nurse' || currentRole === 'admin';
+  mc.innerHTML = `
+  <div class="page-header">
+    <div><h1>${ic('note',24)} Detail Hasil AI</h1><p>${entry.date} — ${entry.patient}</p></div>
+    <div style="display:flex;gap:8px">
+      ${canManage ? `<button class="btn btn-ghost" onclick="explainResult('${entry.id}','${top ? top.id : ''}')" ${top?'':'disabled'}>${ic('search',15)} Mengapa hasil ini?</button>` : ''}
+      <button class="btn btn-teal" onclick="exportAIResultPDF('${entry.id}')">${ic('upload',15)} Export PDF</button>
+    </div>
+  </div>
+  <div class="grid-2" style="align-items:start">
+    <div class="card">
+      <div class="card-header"><span class="card-title">${ic('user')} Data Pasien & Sesi</span></div>
+      <div class="card-body" style="font-size:0.86rem;color:var(--ink-700);line-height:2">
+        <div><strong>Nama:</strong> ${entry.patient}</div>
+        <div><strong>Tanggal:</strong> ${entry.date}</div>
+        <div><strong>Status:</strong> ${entry.status}</div>
+        <div><strong>Perawat Penanggung Jawab:</strong> ${entry.nurse || 'Belum ditugaskan'}</div>
+      </div>
+      ${canManage ? `
+      <div class="card-body" style="border-top:1px solid var(--cream-200)">
+        <div class="form-group"><label>Tugaskan Perawat</label>
+          <select id="aiDetailNurse">
+            <option value="">— Belum ditugaskan —</option>
+            ${nurses.map(n=>`<option value="${n.name}" ${entry.nurse===n.name?'selected':''}>${n.name}</option>`).join('')}
+          </select>
+        </div>
+        <div class="form-group"><label>Status</label>
+          <select id="aiDetailStatus">
+            ${['Baru','Ditinjau','Home Visit Terjadwal','Selesai','Perlu Tinjauan Manual'].map(s=>`<option ${entry.status===s?'selected':''}>${s}</option>`).join('')}
+          </select>
+        </div>
+        <button class="btn btn-teal btn-full" onclick="saveAIDetailStatus('${entry.id}')">${ic('check-circle',15)} Simpan</button>
+      </div>` : ''}
+    </div>
+    <div class="card">
+      <div class="card-header"><span class="card-title">${ic('activity')} Gejala Dilaporkan (${trace.selectedSymptoms.length})</span></div>
+      <div class="card-body"><div style="display:flex;flex-wrap:wrap;gap:6px">${trace.selectedSymptoms.map(id=>`<span class="badge badge-teal">${symptomLabel(id)}</span>`).join('')}</div></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:1.2rem">
+    <div class="card-header"><span class="card-title">${ic('brain')} Rule Aktif (${trace.firedRules.length}) &amp; Rule Gagal (${trace.evaluatedRules.length - trace.firedRules.length})</span></div>
+    <div class="card-body" style="display:flex;flex-direction:column;gap:6px">
+      ${trace.evaluatedRules.map(e => `
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;padding:0.55rem 0.8rem;border-radius:var(--radius-sm);background:${e.fired?'var(--teal-50)':'var(--cream-50)'}">
+        <span style="font-size:0.85rem;font-weight:600">${e.fired?ic('check-circle',14):ic('x',14)} ${e.rule.disease}</span>
+        <span style="font-size:0.76rem;color:var(--ink-500)">${e.matchedCount}/${e.rule.symptoms.length} gejala • min ${e.rule.minMatch}</span>
+      </div>`).join('')}
+    </div>
+  </div>
+  ${top ? `
+  <div class="card" style="margin-top:1.2rem">
+    <div class="card-header"><span class="card-title">${ic('badge-check')} Diagnosis, Klasifikasi &amp; Rekomendasi</span></div>
+    <div class="card-body">
+      <div style="font-weight:700;font-size:1rem;margin-bottom:4px">${top.disease}</div>
+      <div style="margin-bottom:10px"><span class="badge ${top.careCategory.badge}">${ic(top.careCategory.icon,12)} ${top.careCategory.label}</span></div>
+      <ul style="font-size:0.85rem;color:var(--ink-700);padding-left:1.1rem;line-height:1.8">${top.handling.map(h=>`<li>${h}</li>`).join('')}</ul>
+      <div style="margin-top:8px;font-size:0.84rem;color:var(--ink-700)"><strong>Catatan keperawatan:</strong> ${top.nursing}</div>
+    </div>
+  </div>` : ''}
+  <button class="btn btn-ghost" style="margin-top:1.2rem" onclick="navigate('ai-history')">${ic('arrow-left',15)} Kembali ke Riwayat</button>
+  `;
+}
+
+function saveAIDetailStatus(id) {
+  const entry = getAIHistory(id);
+  if (!entry) return;
+  const nurseVal = document.getElementById('aiDetailNurse').value;
+  const statusVal = document.getElementById('aiDetailStatus').value;
+  entry.nurse = nurseVal || null;
+  entry.status = statusVal;
+  persistAIData();
+  toast('Status konsultasi AI diperbarui', 'check-circle');
+  navigate('ai-detail');
+}
+
+// ---------- EXPORT PDF (Prioritas 8) ----------
+function ensureJsPDF(cb) {
+  if (window.jspdf) { cb(); return; }
+  const s = document.createElement('script');
+  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+  s.onload = cb;
+  s.onerror = () => toast('Gagal memuat modul export PDF. Periksa koneksi internet.', 'alert-triangle');
+  document.head.appendChild(s);
+}
+
+function exportAIResultPDF(id) {
+  const entry = getAIHistory(id);
+  if (!entry) return;
+  toast('Menyiapkan PDF...', 'upload');
+  ensureJsPDF(() => {
+    try {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      const top = entry.trace.results[0];
+      let y = 18;
+      doc.setFontSize(15); doc.setFont(undefined,'bold');
+      doc.text('Home Care AI — Terbanggi Besar', 14, y); y += 6;
+      doc.setFontSize(10); doc.setFont(undefined,'normal');
+      doc.text('Laporan Hasil Konsultasi AI (Sistem Pakar Forward Chaining)', 14, y); y += 10;
+      doc.setDrawColor(200); doc.line(14, y, 196, y); y += 8;
+
+      doc.setFontSize(11); doc.setFont(undefined,'bold'); doc.text('Data Pasien', 14, y); y += 6;
+      doc.setFont(undefined,'normal'); doc.setFontSize(10);
+      doc.text('Nama: ' + entry.patient, 14, y); y += 5;
+      doc.text('Tanggal: ' + entry.date, 14, y); y += 5;
+      doc.text('Status: ' + entry.status, 14, y); y += 5;
+      doc.text('Perawat: ' + (entry.nurse || '-'), 14, y); y += 9;
+
+      doc.setFont(undefined,'bold'); doc.text('Gejala', 14, y); y += 6;
+      doc.setFont(undefined,'normal');
+      const symText = doc.splitTextToSize(entry.trace.selectedSymptoms.map(symptomLabel).join(', ') || '-', 180);
+      doc.text(symText, 14, y); y += symText.length * 5 + 4;
+
+      doc.setFont(undefined,'bold'); doc.text('Rule yang Digunakan (Proses Inferensi)', 14, y); y += 6;
+      doc.setFont(undefined,'normal'); doc.setFontSize(9);
+      entry.trace.evaluatedRules.forEach(e => {
+        const line = (e.fired ? '[COCOK] ' : '[GAGAL] ') + e.rule.disease + ' — ' + e.matchedCount + '/' + e.rule.symptoms.length + ' gejala (min ' + e.rule.minMatch + ')';
+        const wrapped = doc.splitTextToSize(line, 180);
+        doc.text(wrapped, 14, y); y += wrapped.length * 4.6;
+      });
+      y += 5; doc.setFontSize(10);
+
+      if (top) {
+        doc.setFont(undefined,'bold'); doc.text('Diagnosis & Klasifikasi', 14, y); y += 6;
+        doc.setFont(undefined,'normal');
+        doc.text('Diagnosis: ' + top.disease, 14, y); y += 5;
+        doc.text('Klasifikasi Perawatan: ' + top.careCategory.label + ' (' + top.classification + ')', 14, y); y += 9;
+        doc.setFont(undefined,'bold'); doc.text('Rekomendasi Penanganan', 14, y); y += 6;
+        doc.setFont(undefined,'normal');
+        top.handling.forEach(h => { const w = doc.splitTextToSize('- ' + h, 180); doc.text(w, 14, y); y += w.length * 5; });
+        y += 3;
+        const noteText = doc.splitTextToSize('Catatan keperawatan: ' + top.nursing, 180);
+        doc.text(noteText, 14, y); y += noteText.length * 5;
+      } else {
+        doc.setFont(undefined,'bold'); doc.text('Tidak ada diagnosis yang cocok dari basis pengetahuan.', 14, y); y += 8;
+      }
+
+      y += 6;
+      doc.setDrawColor(200); doc.line(14, y, 196, y); y += 6;
+      doc.setFontSize(8); doc.setTextColor(140);
+      doc.text('ID Validasi: ' + entry.id + '  •  Dicetak: ' + new Date().toLocaleString('id-ID'), 14, y);
+      doc.text('Dokumen ini adalah hasil sistem pakar (AI) — bukan pengganti diagnosis dokter.', 14, y + 5);
+
+      doc.save('HomeCareAI_HasilAI_' + entry.id + '.pdf');
+      toast('PDF berhasil diunduh', 'check-circle');
+    } catch (err) {
+      console.error(err);
+      toast('Gagal membuat PDF', 'alert-triangle');
+    }
+  });
+}
+
+// ---------- TENTANG SISTEM PAKAR / HALAMAN SKRIPSI (Prioritas 12, khusus perawat & admin) ----------
+function renderSistemPakar(mc) {
+  const flow = ['Login', 'Input Gejala', 'Forward Chaining', 'Knowledge Base', 'Inferensi', 'Diagnosis', 'Klasifikasi Perawatan', 'Rekomendasi', 'Riwayat', 'Dashboard Perawat', 'Home Visit', 'Dokumentasi', 'Selesai'];
+  mc.innerHTML = `
+  <div class="page-header">
+    <div><h1>${ic('brain',24)} Tentang Sistem Pakar</h1><p>Dokumentasi teknis Expert System — Forward Chaining untuk keperluan skripsi</p></div>
+  </div>
+  <div class="card" style="margin-bottom:1.2rem">
+    <div class="card-header"><span class="card-title">${ic('clipboard')} Cara Kerja Sistem</span></div>
+    <div class="card-body" style="font-size:0.87rem;color:var(--ink-700);line-height:1.8">
+      Aplikasi ini mengimplementasikan <strong>Expert System dengan algoritma Forward Chaining</strong> sebagai
+      metode klasifikasi perawatan pasien. Gejala yang dipilih pasien/perawat dicocokkan terhadap seluruh
+      rule pada basis pengetahuan (<em>knowledge base</em>) yang tersimpan secara dinamis dan dapat diubah oleh
+      admin/perawat tanpa mengubah kode program. Setiap rule dievaluasi (bukan berhenti di kecocokan pertama),
+      rule yang memenuhi ambang minimal gejala dinyatakan <strong>fired</strong>, lalu resolusi konflik memilih
+      diagnosis akhir berdasarkan level keparahan tertinggi dan skor kecocokan tertinggi.
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:1.2rem">
+    <div class="card-header"><span class="card-title">${ic('brain')} Diagram Rule (Struktur Aturan)</span></div>
+    <div class="card-body">
+      <div style="font-family:var(--font-mono);font-size:0.82rem;background:var(--navy-900);color:var(--teal-200);border-radius:var(--radius-sm);padding:1rem;line-height:1.8">
+        IF G01 AND G02 AND ... AND Gn<br>
+        (jumlah gejala cocok ≥ minMatch)<br>
+        THEN Penyakit/Kondisi P01<br>
+        &rarr; Klasifikasi Perawatan
+      </div>
+      <p style="font-size:0.82rem;color:var(--ink-500);margin-top:10px">Lihat &amp; kelola seluruh rule aktual pada halaman <a href="javascript:void(0)" onclick="navigate('kb')" style="color:var(--teal-600);font-weight:600">Basis Pengetahuan</a>.</p>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:1.2rem">
+    <div class="card-header"><span class="card-title">${ic('chart-bar')} Diagram Keputusan (Level &rarr; Klasifikasi Perawatan)</span></div>
+    <div class="card-body" style="display:flex;flex-direction:column;gap:6px">
+      ${CARE_CATEGORIES.map(c => `<div style="display:flex;align-items:center;gap:10px;padding:0.5rem 0.8rem;border-radius:var(--radius-sm);background:var(--cream-50)"><span class="badge ${c.badge}">${ic(c.icon,12)} ${c.label}</span></div>`).join('')}
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header"><span class="card-title">${ic('search')} Diagram Alur Sistem (Flow Diagram)</span></div>
+    <div class="card-body">
+      <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+        ${flow.map((f,i) => `<span class="badge badge-teal">${f}</span>${i<flow.length-1?`<span style="color:var(--ink-300)">${ic('arrow-right',13)}</span>`:''}`).join('')}
+      </div>
+    </div>
+  </div>
+  `;
 }
 </script>
 <script>
@@ -1724,7 +1985,7 @@ function renderHome(mc) {
         <div class="vb-stat"><div class="vb-stat-num">${lastDoc ? lastDoc.date.split(' ')[0] : '–'}</div><div class="vb-stat-label">Terakhir</div></div>
       </div>
       <div class="visit-banner-actions">
-        ${role!=='patient' ? `<button class="btn btn-white" onclick="openDocModal()">${ic('upload',16)} Unggah Foto</button>` : ''}
+        ${role!=='patient' ? `<button class="btn btn-white" onclick="openModal('docModal')">${ic('upload',16)} Unggah Foto</button>` : ''}
         <button class="btn btn-outline-white" onclick="navigate('visitdocs')">${ic('arrow-right',16)} Lihat Semua</button>
       </div>
     </div>
@@ -2062,8 +2323,28 @@ function resetSymptoms() {
 
 function analyzeSymptoms() {
   if (selectedSymptoms.length === 0) { toast('Pilih minimal satu gejala', 'alert-triangle'); return; }
-  const results = forwardChaining(selectedSymptoms);
+  const trace = forwardChaining(selectedSymptoms);
+  lastInferenceTrace = trace;
+  const results = trace.results;
   const area = document.getElementById('diagResultArea');
+
+  // Prioritas 5 & 11: setiap konsultasi (termasuk yang tidak cocok) dicatat ke Riwayat AI
+  const historyEntry = {
+    id: genAIHistoryId(),
+    date: new Date().toLocaleString('id-ID', {day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'}),
+    patient: currentUser ? currentUser.name : '-',
+    role: currentRole,
+    symptomIds: [...selectedSymptoms],
+    firedRuleIds: trace.firedRules.map(f => f.rule.id),
+    diagnosis: results.length ? results[0].disease : 'Tidak ada kecocokan diagnosis',
+    careCategory: results.length ? results[0].careCategory : CARE_CATEGORIES.find(c=>c.id==='observasi'),
+    nurse: null,
+    status: results.length ? 'Baru' : 'Perlu Tinjauan Manual',
+    trace
+  };
+  aiHistory.unshift(historyEntry);
+  persistAIData();
+
   if (results.length === 0) {
     area.innerHTML = `
     <div class="empty-state">
@@ -2074,6 +2355,7 @@ function analyzeSymptoms() {
     return;
   }
   const levelIcon = {1:'check-circle',2:'alert-triangle',3:'alert-triangle',4:'alert-octagon'};
+  const canExplain = currentRole === 'nurse' || currentRole === 'admin';
   area.innerHTML = `<h3 style="font-size:1rem;font-weight:700;margin:1.2rem 0 0.9rem;display:flex;align-items:center;gap:8px">${ic('clipboard')} Hasil Analisis (${results.length} kemungkinan)</h3>` +
     results.map(r => `
     <div class="diag-result level-${r.level}">
@@ -2084,7 +2366,10 @@ function analyzeSymptoms() {
         </div>
         <span class="badge ${r.level===1?'badge-green':r.level===2?'badge-gold':r.level===3?'badge-orange':'badge-red'}">${r.levelText}</span>
       </div>
-      <div style="font-size:0.82rem;font-weight:600;color:var(--ink-700);margin-bottom:0.7rem">${r.classification} • Kecocokan gejala: ${r.matchedCount}/${r.symptoms.length}</div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:0.7rem">
+        <span style="font-size:0.82rem;font-weight:600;color:var(--ink-700)">${r.classification} • Kecocokan gejala: ${r.matchedCount}/${r.symptoms.length}</span>
+        <span class="badge ${r.careCategory.badge}">${ic(r.careCategory.icon,11)} ${r.careCategory.label}</span>
+      </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0.8rem">
         <div>
           <div style="font-size:0.74rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--ink-500);margin-bottom:6px;display:flex;align-items:center;gap:5px">${ic('pills',13)} Obat yang Disarankan</div>
@@ -2099,7 +2384,10 @@ function analyzeSymptoms() {
         <span style="color:var(--teal-700);flex-shrink:0;margin-top:1px">${ic('stethoscope',14)}</span>
         <span><strong>Catatan keperawatan:</strong> ${r.nursing}</span>
       </div>
-      ${r.level >= 3 ? `<button class="btn btn-coral btn-full" style="margin-top:0.9rem" onclick="navigate('consult')">${ic('phone',15)} Hubungi Perawat Sekarang</button>` : `<button class="btn btn-teal btn-full" style="margin-top:0.9rem" onclick="navigate('consult')">${ic('chat',15)} Diskusikan dengan Perawat</button>`}
+      <div style="display:flex;gap:8px;margin-top:0.9rem;flex-wrap:wrap">
+        ${r.level >= 3 ? `<button class="btn btn-coral" style="flex:1" onclick="navigate('consult')">${ic('phone',15)} Hubungi Perawat Sekarang</button>` : `<button class="btn btn-teal" style="flex:1" onclick="navigate('consult')">${ic('chat',15)} Diskusikan dengan Perawat</button>`}
+        ${canExplain ? `<button class="btn btn-ghost" onclick="explainResult('${historyEntry.id}','${r.id}')">${ic('search',15)} Mengapa hasil ini?</button>` : ''}
+      </div>
     </div>`).join('');
   area.scrollIntoView({behavior:'smooth', block:'nearest'});
 }
@@ -2160,7 +2448,7 @@ function renderConsult(mc) {
           <div class="chat-header-name" id="chatHeaderName">${contacts[0]?.name || ''}</div>
           <div class="chat-header-status">${ic('check-circle',11)} Online sekarang</div>
         </div>
-        <button class="btn btn-ghost" style="padding:0.5rem;border-radius:50%" title="Panggilan video" onclick="toast('Memulai panggilan video...', 'video')">${ic('video',16)}</button>
+        <button class="btn btn-ghost" style="padding:0.5rem;border-radius:50%" title="Panggilan video">${ic('video',16)}</button>
       </div>
       <div class="messages-area" id="messagesArea"></div>
       <div class="chat-input-area">
@@ -2208,11 +2496,9 @@ function sendMessage() {
   chatMessages[currentChatPartner].push({from:'me', text, time});
   input.value = '';
   renderMessages();
-  persistDB();
   setTimeout(()=>{
     chatMessages[currentChatPartner].push({from:'other', text:'Baik, dicatat ya. Terima kasih sudah memberi kabar.', time:new Date().toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'})});
     renderMessages();
-    persistDB();
   }, 1100);
 }
 </script>
@@ -2232,7 +2518,7 @@ function renderVisitDocs(mc) {
       <h1>${ic('camera',24)} Dokumentasi Kunjungan</h1>
       <p>Bukti visual dan catatan setiap kunjungan perawat ke rumah pasien</p>
     </div>
-    ${canUpload ? `<button class="btn btn-teal" onclick="openDocModal()">${ic('upload',16)} Unggah Dokumentasi</button>` : ''}
+    ${canUpload ? `<button class="btn btn-teal" onclick="openModal('docModal')">${ic('upload',16)} Unggah Dokumentasi</button>` : ''}
   </div>
 
   <div class="visit-banner" style="margin-bottom:1.6rem">
@@ -2347,7 +2633,6 @@ function saveDocumentation() {
   const zone = document.getElementById('docUploadZone');
   if (zone) zone.innerHTML = `<div style="color:var(--teal-600);margin-bottom:8px">${ic('upload',28)}</div><div style="font-size:0.86rem;font-weight:600;color:var(--ink-700)">Klik untuk unggah foto</div><div style="font-size:0.74rem;margin-top:2px">PNG, JPG hingga 10MB</div>`;
   closeModal('docModal');
-  persistDB();
   toast('Dokumentasi kunjungan tersimpan!', 'camera');
   if (activePage === 'visitdocs') navigate('visitdocs');
   if (activePage === 'home') navigate('home');
@@ -2429,84 +2714,14 @@ function renderPatientRows(list) {
     <td><span class="badge ${p.status==='Darurat'?'badge-red':'badge-green'}">${p.status}</span></td>
     <td>
       <div style="display:flex;gap:6px">
-        <button class="btn btn-ghost" style="padding:0.35rem 0.65rem;font-size:0.78rem" onclick="viewPatientDetail(${p.id})">${ic('user',13)}</button>
-        <button class="btn btn-teal" style="padding:0.35rem 0.65rem;font-size:0.78rem" onclick="chatWithPatient('${p.name.replace(/'/g,"\\'")}')">${ic('chat',13)}</button>
-        ${currentRole!=='patient'?`<button class="btn btn-ghost" style="padding:0.35rem 0.65rem;font-size:0.78rem" onclick="openDocModalFor('${p.name.replace(/'/g,"\\'")}')">${ic('camera',13)}</button>`:''}
+        <button class="btn btn-ghost" style="padding:0.35rem 0.65rem;font-size:0.78rem" onclick="toast('Detail pasien ${p.name}','user')">${ic('user',13)}</button>
+        <button class="btn btn-teal" style="padding:0.35rem 0.65rem;font-size:0.78rem" onclick="toast('Chat dengan ${p.name}','chat')">${ic('chat',13)}</button>
+        ${currentRole!=='patient'?`<button class="btn btn-ghost" style="padding:0.35rem 0.65rem;font-size:0.78rem" onclick="openModal('docModal')">${ic('camera',13)}</button>`:''}
         ${currentRole==='admin'?`<button class="btn btn-danger" style="padding:0.35rem 0.65rem;font-size:0.78rem" onclick="deletePatient(${p.id})">${ic('trash',13)}</button>`:''}
       </div>
     </td>
   </tr>`).join('');
 }
-
-function viewPatientDetail(id) {
-  const p = patients.find(x => x.id === id);
-  if (!p) { toast('Data pasien tidak ditemukan', 'alert-triangle'); return; }
-  const levelBadge = {'level-1':'badge-green','level-2':'badge-gold','level-3':'badge-orange','level-4':'badge-red'};
-  const docs = visitDocs.filter(d => d.patient === p.name);
-  const visits = scheduledVisits.filter(v => v.patient === p.name).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
-  document.getElementById('patientDetailBody').innerHTML = `
-    <div style="display:flex;align-items:center;gap:14px;margin-bottom:1.1rem">
-      <div class="user-avatar" style="width:52px;height:52px;font-size:1.1rem">${p.name.split(' ').map(w=>w[0]).join('').slice(0,2)}</div>
-      <div>
-        <div style="font-weight:700;font-size:1.05rem">${p.name}</div>
-        <div style="font-size:0.8rem;color:var(--ink-500)">${p.gender==='L'?'Laki-laki':'Perempuan'} • ${p.age} tahun</div>
-      </div>
-      <span class="badge ${levelBadge[p.level]}" style="margin-left:auto">${p.levelText}</span>
-    </div>
-    <div class="info-grid" style="margin-bottom:1rem">
-      <div class="info-item"><label>${ic('phone',10)} Telepon</label><p>${p.phone || '–'}</p></div>
-      <div class="info-item"><label>${ic('home',10)} Alamat</label><p>${p.address || '–'}</p></div>
-      <div class="info-item"><label>${ic('stethoscope',10)} Kondisi</label><p>${p.condition}</p></div>
-      <div class="info-item"><label>${ic('calendar',10)} Kunjungan Terakhir</label><p>${p.lastVisit}</p></div>
-    </div>
-    <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--ink-500);margin-bottom:6px">${ic('calendar-plus',13)} Jadwal Mendatang (${visits.length})</div>
-    <div style="margin-bottom:1rem">${visits.length ? visits.slice(0,3).map(v=>`<div style="font-size:0.82rem;color:var(--ink-700);padding:4px 0">${new Date(v.date).toLocaleDateString('id-ID',{day:'2-digit',month:'short'})} ${v.time} — ${v.type}</div>`).join('') : '<div style="font-size:0.82rem;color:var(--ink-500)">Belum ada jadwal</div>'}</div>
-    <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--ink-500);margin-bottom:6px">${ic('camera',13)} Dokumentasi (${docs.length})</div>
-    <div class="doc-gallery">${docs.length ? docs.slice(0,4).map(d=>`<div class="doc-thumb" onclick="viewPhoto(${d.id})"><img src="${d.photo}" loading="lazy"></div>`).join('') : '<div style="font-size:0.82rem;color:var(--ink-500)">Belum ada foto</div>'}</div>
-  `;
-  document.getElementById('patientDetailChatBtn').onclick = () => { closeModal('patientDetailModal'); chatWithPatient(p.name); };
-  openModal('patientDetailModal');
-}
-
-function chatWithPatient(name) {
-  navigate('consult');
-  setTimeout(() => {
-    const contacts = getChatContacts();
-    let c = contacts.find(x => x.name === name);
-    if (!c) {
-      // Belum ada percakapan sebelumnya — mulai obrolan baru dengan pasien ini
-      c = { id: 'p_' + name.replace(/\s+/g,'_'), name, role:'Pasien', preview:'Mulai percakapan baru', time:'Baru saja', unread:0, online:true };
-      currentChatPartner = c.id;
-      chatMessages[c.id] = [{from:'other', text:`Halo, saya ${name}. Ada yang bisa dibantu?`, time:'Baru saja'}];
-      const listEl = document.querySelector('.chat-list');
-      if (listEl) {
-        const item = document.createElement('div');
-        item.className = 'chat-item';
-        item.id = 'chatitem-' + c.id;
-        item.onclick = () => openChat(c.id);
-        item.innerHTML = `<div class="chat-avatar">${name.split(' ').map(w=>w[0]).join('').slice(0,2)}<span class="online-dot"></span></div><div class="chat-info"><div class="chat-name">${name}</div><div class="chat-preview">Mulai percakapan baru</div></div>`;
-        listEl.prepend(item);
-      }
-      openChat(c.id);
-    } else {
-      openChat(c.id);
-    }
-    toast('Membuka chat dengan ' + name, 'chat');
-  }, 200);
-}
-
-function openDocModal(presetName) {
-  const sel = document.getElementById('docPatient');
-  if (sel) {
-    sel.innerHTML = patients.map(p => `<option>${p.name}</option>`).join('');
-    if (presetName) {
-      const idx = [...sel.options].findIndex(o => o.value === presetName);
-      if (idx > -1) sel.selectedIndex = idx;
-    }
-  }
-  openModal('docModal');
-}
-function openDocModalFor(name) { openDocModal(name); }
 
 function filterPatients(query, levelFilter) {
   const q = (query||'').toLowerCase();
@@ -2538,7 +2753,6 @@ function savePatient() {
   });
   ['newPatName','newPatAge','newPatPhone','newPatAddress','newPatCondition'].forEach(id=>document.getElementById(id).value='');
   closeModal('patientModal');
-  persistDB();
   toast('Pasien baru ditambahkan!', 'user-heart');
   if (activePage==='patients') navigate('patients');
 }
@@ -2546,7 +2760,6 @@ function savePatient() {
 function deletePatient(id) {
   if (!confirm('Hapus data pasien ini?')) return;
   patients = patients.filter(p=>p.id!==id);
-  persistDB();
   if (activePage==='patients') navigate('patients');
   toast('Data pasien dihapus', 'trash');
 }
@@ -2649,7 +2862,6 @@ function changeScheduleMonth(delta) {
 function deleteSchedule(id) {
   if (!confirm('Batalkan jadwal kunjungan ini?')) return;
   scheduledVisits = scheduledVisits.filter(v=>v.id!==id);
-  persistDB();
   toast('Jadwal dibatalkan', 'trash');
   navigate('schedule');
 }
@@ -2735,27 +2947,21 @@ function renderHealth(mc) {
 // =============================================
 function saveProfile() {
   const name = document.getElementById('profile-name').value.trim();
-  let email = document.getElementById('profile-email').value.trim();
+  const email = document.getElementById('profile-email').value.trim();
   if (!name || !email) { toast('Nama dan email tidak boleh kosong', 'alert-triangle'); return; }
-  if (!email.includes('@')) email = email + '@gmail.com';
-  if (!isValidGmail(email)) { toast('Email harus menggunakan format nama@gmail.com', 'alert-triangle'); return; }
-  const existing = findUserByEmail(email);
-  if (existing && existing.email.toLowerCase() !== currentUser.email.toLowerCase()) {
-    toast('Email tersebut sudah dipakai akun lain', 'alert-triangle'); return;
-  }
-
   const oldName = currentUser.name;
-  const oldEmail = currentUser.email;
   currentUser.name = name;
   currentUser.email = email;
   currentUser.phone = document.getElementById('profile-phone').value.trim();
   currentUser.birthdate = document.getElementById('profile-birthdate').value.trim();
   currentUser.address = document.getElementById('profile-address').value.trim();
   currentUser.initial = name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
-  const ageEl = document.getElementById('profile-age');
-  const genderEl = document.getElementById('profile-gender');
-  if (ageEl) currentUser.age = parseInt(ageEl.value) || currentUser.age || 0;
-  if (genderEl) currentUser.gender = genderEl.value;
+  if (currentRole === 'patient') {
+    const ageEl = document.getElementById('profile-age');
+    const genderEl = document.getElementById('profile-gender');
+    if (ageEl) currentUser.age = parseInt(ageEl.value) || currentUser.age || 0;
+    if (genderEl) currentUser.gender = genderEl.value;
+  }
 
   // Sinkronkan perubahan ke database pasien/perawat supaya tetap terhubung untuk penjadwalan
   if (currentUser.patientRecordId) {
@@ -2779,24 +2985,13 @@ function saveProfile() {
     }
   }
 
-  // Sinkronkan ke akun (users DB) agar perubahan tersimpan permanen dan konsisten saat login ulang
-  const u = findUserByEmail(oldEmail);
-  if (u) {
-    u.name = name; u.email = email; u.phone = currentUser.phone; u.birthdate = currentUser.birthdate;
-    u.address = currentUser.address; u.initial = currentUser.initial;
-    u.age = currentUser.age; u.gender = currentUser.gender;
-  }
-  persistDB();
-
   initDashboard();
   navigate('profile');
-  toast('Profil tersimpan ke database!', 'check-circle');
+  toast('Profil tersimpan!', 'check-circle');
 }
 
 function renderProfile(mc) {
-
   const u = currentUser;
-  const roleLabel = {'patient':'Pasien','nurse':'Perawat','admin':'Administrator'};
   mc.innerHTML = `
   <div class="page-header"><h1>${ic('user',24)} Profil Saya</h1></div>
   <div class="grid-2" style="align-items:start">
@@ -2805,7 +3000,7 @@ function renderProfile(mc) {
         <div class="profile-avatar-lg">${u.initial}</div>
         <div class="profile-info">
           <h2>${u.name}</h2>
-          <p>${roleLabel[currentRole]}</p>
+          <p>${{'patient':'Pasien','nurse':'Perawat','admin':'Administrator'}[currentRole]}</p>
           <div style="margin-top:8px;display:flex;gap:8px">
             <span class="badge" style="background:rgba(255,255,255,0.18);color:white">${ic('badge-check',12)} Terverifikasi</span>
             <span class="badge" style="background:rgba(255,255,255,0.18);color:white">${ic('shield',12)} Aktif</span>
@@ -2816,14 +3011,15 @@ function renderProfile(mc) {
         <div class="info-grid">
           ${[
             {label:'Nama Lengkap', key:'name', val: u.name, icon:'user', type:'text', placeholder:'Nama lengkap Anda'},
-            {label:'Email', key:'email', val: u.email, icon:'mail', type:'email', placeholder:'nama@gmail.com'},
+            {label:'Email', key:'email', val: u.email, icon:'mail', type:'email', placeholder:'email@contoh.com'},
             {label:'Telepon', key:'phone', val: u.phone || '', icon:'phone', type:'tel', placeholder:'0812-xxxx-xxxx'},
             {label:'Tanggal Lahir', key:'birthdate', val: u.birthdate || '', icon:'calendar', type:'text', placeholder:'cth. 15 Maret 1990'},
             {label:'Alamat', key:'address', val: u.address || '', icon:'home', type:'text', placeholder:'Alamat lengkap tempat tinggal'},
           ].map(f=>`<div class="info-item">
             <label>${ic(f.icon,11)} ${f.label}</label>
-            <input type="${f.type}" id="profile-${f.key}" value="${(f.val||'').replace(/"/g,'&quot;')}" placeholder="${f.placeholder}" ${f.key==='email'?`onblur="autoFillGmail(this)"`:''} style="width:100%;border:1.5px solid var(--ink-100);border-radius:var(--radius-sm);padding:0.55rem 0.7rem;font-size:0.875rem;font-family:var(--font-body);color:var(--ink-900);background:var(--white)">
+            <input type="${f.type}" id="profile-${f.key}" value="${(f.val||'').replace(/"/g,'&quot;')}" placeholder="${f.placeholder}" style="width:100%;border:1.5px solid var(--ink-100);border-radius:var(--radius-sm);padding:0.55rem 0.7rem;font-size:0.875rem;font-family:var(--font-body);color:var(--ink-900);background:var(--white)">
           </div>`).join('')}
+          ${currentRole==='patient' ? `
           <div class="info-item">
             <label>${ic('activity',11)} Usia</label>
             <input type="number" id="profile-age" value="${u.age||''}" placeholder="Usia (tahun)" style="width:100%;border:1.5px solid var(--ink-100);border-radius:var(--radius-sm);padding:0.55rem 0.7rem;font-size:0.875rem;font-family:var(--font-body);color:var(--ink-900);background:var(--white)">
@@ -2834,7 +3030,7 @@ function renderProfile(mc) {
               <option value="L" ${u.gender==='L'?'selected':''}>Laki-laki</option>
               <option value="P" ${u.gender==='P'?'selected':''}>Perempuan</option>
             </select>
-          </div>
+          </div>` : ''}
         </div>
         <button class="btn btn-teal btn-full" style="margin-top:1.3rem" onclick="saveProfile()">${ic('check',16)} Simpan Perubahan</button>
       </div>
@@ -2843,91 +3039,37 @@ function renderProfile(mc) {
       <div class="card">
         <div class="card-header"><span class="card-title">${ic('shield')} Keamanan Akun</span></div>
         <div class="card-body" style="display:flex;flex-direction:column;gap:0.8rem">
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:var(--cream-50);border-radius:var(--radius-md)">
+          ${[
+            {icon:'key', label:'Ganti Password', desc:'Terakhir diubah 30 hari lalu'},
+            {icon:'phone-lock', label:'Verifikasi 2 Faktor', desc:'Aktif via SMS'},
+            {icon:'globe', label:'Bahasa Aplikasi', desc:'Bahasa Indonesia'},
+          ].map(s=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:var(--cream-50);border-radius:var(--radius-md)">
             <div style="display:flex;gap:10px;align-items:center">
-              <span style="color:var(--teal-700)">${ic('key',18)}</span>
-              <div><div style="font-weight:600;font-size:0.875rem">Ganti Password</div><div style="font-size:0.75rem;color:var(--ink-500)">Perbarui kata sandi akun Anda</div></div>
+              <span style="color:var(--teal-700)">${ic(s.icon,18)}</span>
+              <div><div style="font-weight:600;font-size:0.875rem">${s.label}</div><div style="font-size:0.75rem;color:var(--ink-500)">${s.desc}</div></div>
             </div>
-            <button class="btn btn-ghost" style="font-size:0.78rem;padding:0.35rem 0.8rem" onclick="openChangePasswordModal()">${ic('edit',13)}</button>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:var(--cream-50);border-radius:var(--radius-md)">
-            <div style="display:flex;gap:10px;align-items:center">
-              <span style="color:var(--teal-700)">${ic('phone-lock',18)}</span>
-              <div><div style="font-weight:600;font-size:0.875rem">Verifikasi 2 Faktor</div><div style="font-size:0.75rem;color:var(--ink-500)" id="twoFAStatusText">${u.twoFA ? 'Aktif via SMS' : 'Nonaktif'}</div></div>
-            </div>
-            <div class="toggle-switch ${u.twoFA?'on':''}" id="twoFAToggle" onclick="toggle2FA()"><div class="dot"></div></div>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:var(--cream-50);border-radius:var(--radius-md)">
-            <div style="display:flex;gap:10px;align-items:center">
-              <span style="color:var(--teal-700)">${ic('globe',18)}</span>
-              <div><div style="font-weight:600;font-size:0.875rem">Bahasa Aplikasi</div><div style="font-size:0.75rem;color:var(--ink-500)">Bahasa Indonesia</div></div>
-            </div>
-            <button class="btn btn-ghost" style="font-size:0.78rem;padding:0.35rem 0.8rem" onclick="toast('Saat ini aplikasi hanya tersedia dalam Bahasa Indonesia','globe')">${ic('edit',13)}</button>
-          </div>
-          <button class="btn btn-ghost btn-full" style="color:var(--ink-500);font-size:0.78rem" onclick="resetDB()">${ic('database',14)} Reset Database Lokal</button>
+            <button class="btn btn-ghost" style="font-size:0.78rem;padding:0.35rem 0.8rem" onclick="toast('Pengaturan ${s.label} dibuka','settings')">${ic('edit',13)}</button>
+          </div>`).join('')}
         </div>
       </div>
       <div class="card">
         <div class="card-header"><span class="card-title">${ic('bell')} Notifikasi</span></div>
-        <div class="card-body" style="display:flex;flex-direction:column;gap:0.7rem" id="notifPrefsBody">
+        <div class="card-body" style="display:flex;flex-direction:column;gap:0.7rem">
           ${[
-            {key:'jadwal', label:'Pengingat jadwal kunjungan'},
-            {key:'pesan', label:'Pesan dari perawat'},
-            {key:'ai', label:'Hasil konsultasi AI'},
-            {key:'laporan', label:'Laporan mingguan'},
+            {label:'Pengingat jadwal kunjungan', on:true},
+            {label:'Pesan dari perawat', on:true},
+            {label:'Hasil konsultasi AI', on:false},
+            {label:'Laporan mingguan', on:true},
           ].map(n=>`<div style="display:flex;justify-content:space-between;align-items:center">
             <span style="font-size:0.875rem">${n.label}</span>
-            <div class="toggle-switch ${(u.notifPrefs&&u.notifPrefs[n.key])?'on':''}" onclick="toggleNotifPref('${n.key}', this)"><div class="dot"></div></div>
+            <div style="width:40px;height:22px;background:${n.on?'var(--teal-500)':'var(--ink-100)'};border-radius:11px;cursor:pointer;position:relative;transition:background 200ms" onclick="this.style.background=this.style.background===''||this.style.background==='var(--teal-500, #157A65)'?'rgb(216,226,221)':'rgb(21,122,101)'">
+              <div style="position:absolute;top:3px;${n.on?'right:3px':'left:3px'};width:16px;height:16px;background:white;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.18);transition:all 200ms"></div>
+            </div>
           </div>`).join('')}
         </div>
       </div>
     </div>
   </div>`;
-}
-
-function syncUserRecord(mutator) {
-  if (!currentUser) return;
-  const u = findUserByEmail(currentUser.email);
-  if (u) mutator(u);
-  persistDB();
-}
-
-function toggle2FA() {
-  currentUser.twoFA = !currentUser.twoFA;
-  syncUserRecord(u => { u.twoFA = currentUser.twoFA; });
-  document.getElementById('twoFAToggle').classList.toggle('on', currentUser.twoFA);
-  document.getElementById('twoFAStatusText').textContent = currentUser.twoFA ? 'Aktif via SMS' : 'Nonaktif';
-  toast(currentUser.twoFA ? 'Verifikasi 2 faktor diaktifkan' : 'Verifikasi 2 faktor dinonaktifkan', 'phone-lock');
-}
-
-function toggleNotifPref(key, el) {
-  if (!currentUser.notifPrefs) currentUser.notifPrefs = {};
-  currentUser.notifPrefs[key] = !currentUser.notifPrefs[key];
-  syncUserRecord(u => { if (!u.notifPrefs) u.notifPrefs = {}; u.notifPrefs[key] = currentUser.notifPrefs[key]; });
-  el.classList.toggle('on', currentUser.notifPrefs[key]);
-  toast('Preferensi notifikasi diperbarui', 'bell');
-}
-
-function openChangePasswordModal() {
-  document.getElementById('cpOld').value = '';
-  document.getElementById('cpNew').value = '';
-  document.getElementById('cpConfirm').value = '';
-  openModal('changePasswordModal');
-}
-
-function submitChangePassword() {
-  const oldPass = document.getElementById('cpOld').value;
-  const newPass = document.getElementById('cpNew').value;
-  const confirmPass = document.getElementById('cpConfirm').value;
-  const u = findUserByEmail(currentUser.email);
-  if (!u) { toast('Akun tidak ditemukan', 'alert-triangle'); return; }
-  if (u.password !== oldPass) { toast('Password lama tidak sesuai', 'alert-triangle'); return; }
-  if (newPass.length < 6) { toast('Password baru minimal 6 karakter', 'alert-triangle'); return; }
-  if (newPass !== confirmPass) { toast('Konfirmasi password tidak cocok', 'alert-triangle'); return; }
-  u.password = newPass;
-  persistDB();
-  closeModal('changePasswordModal');
-  toast('Password berhasil diperbarui!', 'check-circle');
 }
 
 // =============================================
@@ -2943,7 +3085,7 @@ function renderReports(mc) {
     ${[
       {icon:'users', color:'teal', val:'47', label:'Total Pasien'},
       {icon:'check-circle', color:'green', val:'23', label:'Kunjungan Minggu Ini'},
-      {icon:'brain', color:'plum', val:'156', label:'Konsultasi AI Bulan Ini'},
+      {icon:'brain', color:'plum', val:String(aiHistory.length), label:'Konsultasi AI Tercatat'},
       {icon:'alert-octagon', color:'coral', val:'2', label:'Kasus Kritis Aktif'},
     ].map(s=>`<div class="stat-card"><div class="stat-icon ${s.color}">${ic(s.icon,20)}</div><div class="stat-val">${s.val}</div><div class="stat-label">${s.label}</div></div>`).join('')}
   </div>
@@ -2983,6 +3125,24 @@ function renderReports(mc) {
           </div>
         </div>`).join('')}
       </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:1.2rem">
+    <div class="card-header"><span class="card-title">${ic('brain')} Dashboard AI — Klasifikasi Perawatan (${aiHistory.length} konsultasi tercatat)</span></div>
+    <div class="card-body">
+      ${aiHistory.length === 0 ? `<p style="font-size:0.85rem;color:var(--ink-500)">Belum ada data konsultasi AI.</p>` :
+        CARE_CATEGORIES.map(c => {
+          const count = aiHistory.filter(h => h.careCategory.id === c.id).length;
+          const pct = Math.round(count / aiHistory.length * 100) || 0;
+          return `<div style="display:flex;align-items:center;gap:10px;margin-bottom:0.7rem">
+            <span style="width:130px;font-size:0.74rem;color:var(--ink-500);font-weight:600">${c.label}</span>
+            <div style="flex:1;height:24px;background:var(--cream-100);border-radius:8px;overflow:hidden">
+              <div style="height:100%;width:${pct}%;background:linear-gradient(90deg,var(--teal-500),var(--teal-400));border-radius:8px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;transition:width 900ms cubic-bezier(.16,1,.3,1)">
+                <span style="font-size:0.7rem;font-weight:700;color:white">${count}</span>
+              </div>
+            </div>
+          </div>`;
+        }).join('')}
     </div>
   </div>`;
   // animate bars
@@ -3047,7 +3207,6 @@ function saveNurse() {
   document.getElementById('nurseSpec').value='';
   document.getElementById('nursePhone').value='';
   closeModal('nurseModal');
-  persistDB();
   toast('Perawat baru ditambahkan!', 'stethoscope');
   if (activePage==='nurses') navigate('nurses');
 }
@@ -3055,7 +3214,6 @@ function saveNurse() {
 function deleteNurse(id) {
   if (!confirm('Hapus perawat ini dari tim?')) return;
   nurses = nurses.filter(n=>n.id!==id);
-  persistDB();
   if (activePage==='nurses') navigate('nurses');
   toast('Perawat dihapus', 'trash');
 }
@@ -3094,7 +3252,6 @@ function saveSchedule() {
     id: Date.now(), patient, date, time, type, note,
     nurse: nurse || (currentUser ? currentUser.name : 'Belum ditentukan')
   });
-  persistDB();
   closeModal('scheduleModal');
   toast(`Jadwal kunjungan untuk ${patient} pada ${new Date(date).toLocaleDateString('id-ID',{day:'2-digit',month:'long',year:'numeric'})} pukul ${time} tersimpan!`, 'calendar');
   scheduleViewMonth = new Date(date+'T00:00').getMonth();
@@ -3102,16 +3259,5 @@ function saveSchedule() {
   if (activePage === 'schedule') navigate('schedule');
   if (activePage === 'home') navigate('home');
 }
-
-// =============================================
-//  APP INITIALIZATION — load local "database" on startup
-// =============================================
-(function initApp(){
-  const restored = loadDB();
-  if (restored) {
-    console.log('Home Care AI: data berhasil dimuat dari database lokal.');
-  }
-})();
-
 </script>
 </body></html>
